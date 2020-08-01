@@ -10,3 +10,10 @@ RUN apt-get install -y nodejs
 RUN apt-get install python3-distutils -y
 RUN curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
 RUN python3 get-pip.py
+
+# Racket
+RUN apt-get install wget -y
+RUN wget http://mirror.informatik.uni-tuebingen.de/mirror/racket/7.7/racket-7.7-x86_64-linux.sh
+RUN chmod +x racket-7.7-x86_64-linux.sh
+RUN ./racket-7.7-x86_64-linux.sh
+RUN echo 'export PATH=$PATH:/usr/racket/bin' >> ~/.bashrc
