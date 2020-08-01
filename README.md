@@ -2,5 +2,5 @@
 ## Usage
 ```
 docker build -t dev-box .
-docker run -it --name devbox dev-box bin/bash
+docker run -it --name dev-box dev-box bin/bash
 ```
