@@ -1,4 +1,6 @@
 # dev-box
+Personal dev environment.
+
 ## Usage
 ```
 docker build -t dev-box .
