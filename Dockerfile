@@ -18,3 +18,6 @@ RUN wget http://mirror.informatik.uni-tuebingen.de/mirror/racket/$RACKET_VERSION
 RUN chmod +x racket-$RACKET_VERSION-x86_64-linux.sh
 RUN ./racket-$RACKET_VERSION-x86_64-linux.sh
 RUN echo 'export PATH=$PATH:/usr/racket/bin' >> ~/.bashrc
+
+# gcc
+RUN apt-get install gcc -y
