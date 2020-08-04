@@ -21,3 +21,10 @@ RUN echo 'export PATH=$PATH:/usr/racket/bin' >> ~/.bashrc
 
 # gcc
 RUN apt-get install gcc -y
+
+# Haskell
+RUN apt-get install build-essential curl libffi-dev libffi7 libgmp-dev libgmp10 libncurses-dev libncurses5 libtinfo5 -y
+RUN curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh
+RUN echo 'export PATH=$PATH:/root/.ghcup/bin' >> ~/.bashrc
+RUN curl -sSL https://get.haskellstack.org/ | sh
+RUN echo 'export PATH=$PATH:/root/.local/bin' >> ~/.bashrc
