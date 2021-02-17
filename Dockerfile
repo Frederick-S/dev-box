@@ -36,3 +36,9 @@ RUN wget https://github.com/AdoptOpenJDK/openjdk11-binaries/releases/download/jd
 RUN tar -xf OpenJDK11U-jdk_x64_linux_hotspot_$JDK_VERSION.tar.gz
 RUN echo 'export JAVA_HOME=/jdk-11.0.10+9' >> ~/.bashrc
 RUN echo 'export PATH=$PATH:$JAVA_HOME/bin' >> ~/.bashrc
+
+# Maven
+ARG MAVEN_VERSION=3.6.3
+RUN wget https://mirrors.gigenet.com/apache/maven/maven-3/$MAVEN_VERSION/binaries/apache-maven-$MAVEN_VERSION-bin.tar.gz
+RUN tar -xf apache-maven-$MAVEN_VERSION-bin.tar.gz
+RUN echo 'export PATH=$PATH:/apache-maven-3.6.3/bin' >> ~/.bashrc
