@@ -3,7 +3,7 @@ FROM ubuntu:20.04
 # Node.js
 RUN apt-get update
 RUN apt-get install curl -y
-RUN curl -sL https://deb.nodesource.com/setup_12.x | bash -
+RUN curl -sL https://deb.nodesource.com/setup_14.x | bash -
 RUN apt-get install -y nodejs
 
 # pip
@@ -23,8 +23,9 @@ RUN echo 'export PATH=$PATH:/usr/racket/bin' >> ~/.bashrc
 RUN apt-get install gcc -y
 
 # Haskell
-RUN apt-get install build-essential curl libffi-dev libffi7 libgmp-dev libgmp10 libncurses-dev libncurses5 libtinfo5 -y
-RUN curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh
-RUN echo 'export PATH=$PATH:/root/.ghcup/bin' >> ~/.bashrc
+RUN apt-get install make
+RUN curl https://gitlab.haskell.org/haskell/ghcup/raw/master/bootstrap-haskell -sSf | sh
+RUN . "$HOME/.ghcup/env"
+RUN echo '. $HOME/.ghcup/env' >> "$HOME/.bashrc"
 RUN curl -sSL https://get.haskellstack.org/ | sh
 RUN echo 'export PATH=$PATH:/root/.local/bin' >> ~/.bashrc
