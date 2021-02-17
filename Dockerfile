@@ -6,7 +6,7 @@ RUN apt-get install curl -y
 RUN curl -sL https://deb.nodesource.com/setup_14.x | bash -
 RUN apt-get install -y nodejs
 
-# pip
+# Pip
 RUN apt-get install python3-distutils -y
 RUN curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
 RUN python3 get-pip.py
@@ -19,7 +19,7 @@ RUN chmod +x racket-$RACKET_VERSION-x86_64-linux-cs.sh
 RUN ./racket-$RACKET_VERSION-x86_64-linux-cs.sh
 RUN echo 'export PATH=$PATH:/usr/racket/bin' >> ~/.bashrc
 
-# gcc
+# Gcc
 RUN apt-get install gcc -y
 
 # Haskell
@@ -48,3 +48,6 @@ RUN echo 'export PATH=$PATH:/apache-maven/bin' >> ~/.bashrc
 RUN wget https://golang.org/dl/go1.16.linux-amd64.tar.gz
 RUN tar -xf go1.16.linux-amd64.tar.gz
 RUN echo 'export PATH=$PATH:/go/bin' >> ~/.bashrc
+
+# Ruby
+RUN apt-get install ruby-full -y
