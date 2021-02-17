@@ -59,6 +59,8 @@ RUN apt-get install ruby-full -y
 
 # .NET
 RUN wget https://download.visualstudio.microsoft.com/download/pr/a2052604-de46-4cd4-8256-9bc222537d32/a798771950904eaf91c0c37c58f516e1/dotnet-sdk-5.0.103-linux-x64.tar.gz
-RUN tar -xf dotnet-sdk-5.0.103-linux-x64.tar.gz
+RUN mkdir dotnet
+RUN tar -xf dotnet-sdk-5.0.103-linux-x64.tar.gz -C dotnet
 RUN rm dotnet-sdk-5.0.103-linux-x64.tar.gz
 RUN echo 'export PATH=$PATH:/dotnet' >> ~/.bashrc
+RUN echo 'export DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1' >> ~/.bashrc
