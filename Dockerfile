@@ -41,4 +41,10 @@ RUN echo 'export PATH=$PATH:$JAVA_HOME/bin' >> ~/.bashrc
 ARG MAVEN_VERSION=3.6.3
 RUN wget https://mirrors.gigenet.com/apache/maven/maven-3/$MAVEN_VERSION/binaries/apache-maven-$MAVEN_VERSION-bin.tar.gz
 RUN tar -xf apache-maven-$MAVEN_VERSION-bin.tar.gz
-RUN echo 'export PATH=$PATH:/apache-maven-3.6.3/bin' >> ~/.bashrc
+RUN mv apache-maven-$MAVEN_VERSION apache-maven
+RUN echo 'export PATH=$PATH:/apache-maven/bin' >> ~/.bashrc
+
+# Go
+RUN wget https://golang.org/dl/go1.16.linux-amd64.tar.gz
+RUN tar -xf go1.16.linux-amd64.tar.gz
+RUN echo 'export PATH=$PATH:/go/bin' >> ~/.bashrc
