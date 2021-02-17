@@ -29,3 +29,10 @@ RUN . "$HOME/.ghcup/env"
 RUN echo '. $HOME/.ghcup/env' >> "$HOME/.bashrc"
 RUN curl -sSL https://get.haskellstack.org/ | sh
 RUN echo 'export PATH=$PATH:/root/.local/bin' >> ~/.bashrc
+
+# Java
+ARG JDK_VERSION=11.0.10_9
+RUN wget https://github.com/AdoptOpenJDK/openjdk11-binaries/releases/download/jdk-11.0.10%2B9/OpenJDK11U-jdk_x64_linux_hotspot_$JDK_VERSION.tar.gz
+RUN tar -xf OpenJDK11U-jdk_x64_linux_hotspot_$JDK_VERSION.tar.gz
+RUN echo 'export JAVA_HOME=/jdk-11.0.10+9' >> ~/.bashrc
+RUN echo 'export PATH=$PATH:$JAVA_HOME/bin' >> ~/.bashrc
